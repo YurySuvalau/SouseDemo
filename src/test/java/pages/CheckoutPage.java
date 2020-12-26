@@ -18,36 +18,29 @@ public class CheckoutPage extends BasePage {
     public static final String CHECKOUT_INF_STEP_TWO_OVERVIEW = "//*[@class='subheader']";
     public static final By ERROR = By.xpath("//*[@data-test='error']");
 
-    public final String FIRSTNAME = "Your";
-    public final String LASTNAME = "Name";
-    public final String ZIPCODE = "123";
-
     public void openPage() {
         driver.get(URL_CHECKOUT);
     }
 
     public void checkoutOneStepClickContinueBut() {
         driver.findElement(By.xpath(CHECKOUT_ONE_STEP_CONTINUE_BUTTON)).click();
-
     }
 
-    public String actualResultCheckout() {
+    public String getErrorMessage () {
         WebElement actualResult = driver.findElement(ERROR);
         return actualResult.getText();
     }
 
-    public void checkoutYourInf(String firstname, String lastname, String zipcode) {
+    public void fillPersonalInfo(String firstname, String lastname, String zipcode) {
         driver.findElement(CHECKOUT_INF_FIRSTNAME).sendKeys(firstname);
         driver.findElement(CHECKOUT_INF_LASTNAME).sendKeys(lastname);
         driver.findElement(CHECKOUT_INF_ZIPCODE).sendKeys(zipcode);
         driver.findElement(By.xpath(CHECKOUT_ONE_STEP_CONTINUE_BUTTON)).click();
     }
 
-    public String checkoutYourInfActualRes() {
+    public String  getCheckoutOverviewLabel() {
         WebElement actualResult = driver.findElement(By.xpath(CHECKOUT_INF_STEP_TWO_OVERVIEW));
         return actualResult.getText();
     }
-
-
 }
 
