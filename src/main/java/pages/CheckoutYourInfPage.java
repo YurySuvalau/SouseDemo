@@ -1,6 +1,6 @@
 package pages;
 
-import Constants.Constants;
+import сonstants.Constants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -9,6 +9,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 public class CheckoutYourInfPage extends BasePage implements Constants {
+    String CHECKOUT_ONE_STEP_CONTINUE_BUTTON = "//*[@class='btn_primary cart_button']";
+    By CHECKOUT_INF_FIRSTNAME = By.xpath("//*[@id='first-name']");
+    By CHECKOUT_INF_LASTNAME = By.xpath("//*[@id='last-name']");
+    By CHECKOUT_INF_ZIPCODE = By.xpath("//*[@id='postal-code']");
+    String ERROR = "//*[@data-test='error']";
 
     public CheckoutYourInfPage(WebDriver driver) {
         super(driver);

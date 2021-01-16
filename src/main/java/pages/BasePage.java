@@ -1,6 +1,6 @@
 package pages;
 
-import Constants.Constants;
+import сonstants.Constants;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,7 +19,6 @@ abstract class BasePage implements Constants {
 
     public void openPage(String url) {
         driver.get(url);
-
     }
 }
 

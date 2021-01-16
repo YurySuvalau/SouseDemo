@@ -1,12 +1,14 @@
 package pages;
 
-import Constants.Constants;
+import org.openqa.selenium.By;
+import сonstants.Constants;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 public class CheckoutFinishPage extends BasePage implements Constants {
+    By CHECKOUT_FINISH_LABEL = By.xpath("//*[@class='subheader']");
 
     public CheckoutFinishPage(WebDriver driver) {
         super(driver);

@@ -1,6 +1,6 @@
 package pages;
 
-import Constants.Constants;
+import сonstants.Constants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -9,6 +9,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 public class CartPage extends BasePage implements Constants {
+    String GET_QUANTITY_IN_CART = "//*[@class='cart_quantity']";
+    String GET_PRICE_IN_CART = "//*[@class='inventory_item_price']";
+    String REMOVE_BUTTON = "//*[@class='btn_secondary cart_button']";
+    String REMOVE_RESULT = "//*[@class='removed_cart_item']";
+    By CHECKOUT_BUTTON = By.xpath("//*[@class='btn_action checkout_button']");
+
     public CartPage(WebDriver driver) {
         super(driver);
     }
@@ -24,7 +30,7 @@ public class CartPage extends BasePage implements Constants {
     }
 
     public CartPage openPage() {
-        openPage(URL_SOUSE_DEMO+URL_CART_PAGE);
+        openPage(URL_SOUSE_DEMO + URL_CART_PAGE);
         return this;
     }
 
@@ -44,8 +50,8 @@ public class CartPage extends BasePage implements Constants {
     }
 
     public String getRemovedProduct() {
-      WebElement removedProduct = driver.findElement(By.xpath(REMOVE_RESULT));
-      return removedProduct.getText();
+        WebElement removedProduct = driver.findElement(By.xpath(REMOVE_RESULT));
+        return removedProduct.getText();
     }
 
     public CheckoutYourInfPage checkoutBtnClick() {

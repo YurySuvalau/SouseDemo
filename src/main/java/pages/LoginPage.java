@@ -1,6 +1,6 @@
 package pages;
 
-import Constants.Constants;
+import сonstants.Constants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -8,6 +8,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 public class LoginPage extends BasePage implements Constants {
+    By USERNAME_INPUT = By.xpath("//*[@data-test='username']");
+    By PASSWORD_INPUT = By.xpath("//*[@data-test='password']");
 
     public LoginPage(WebDriver driver) {
         super(driver);

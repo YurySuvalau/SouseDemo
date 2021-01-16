@@ -3,52 +3,52 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static Constants.Constants.*;
+import static сonstants.Constants.*;
 
 public class HamburgerMenuTest extends BaseTest {
 
     @Test
-    public void restAppStatesAddToCarBtnStatus() {
-        loginPage.openPage() //open site
+    public void restAppStatesAddToCarBtnStatusTest() {
+        loginPage.openPage()
                 .waitForPageOpened()
-                .login(LOGIN_PAGE_USERNAME, LOGIN_PAGE_PASSWORD) //login
+                .login(LOGIN_PAGE_USERNAME, LOGIN_PAGE_PASSWORD)
                 .waitForPageOpened();
-        productsPage.addProductToCart("Sauce Labs Fleece Jacket");//add product to cart
-        hamburgerMenuPage.openPage()//Click on hamburger menu page icon
+        productsPage.addProductToCart("Sauce Labs Fleece Jacket");
+        hamburgerMenuPage.openPage()
                 .waitForPageOpened()
-                .resetAppStateClick() //Click on "Rest app state" button
-                .closeMenuSpanClick() //Click on close menu span
+                .resetAppStateClick()
+                .closeMenuSpanClick()
                 .waitForPageOpened();
-        Assert.assertEquals(productsPage.getTextOnAddToCartBtn("Sauce Labs Fleece Jacket"), "ADD TO CART");//Check button "add to cart" text
+        Assert.assertEquals(productsPage.getTextOnAddToCartBtn("Sauce Labs Fleece Jacket"), "ADD TO CART");
     }
 
     @Test
-    public void restAppStateCartIconStatus() {
-        loginPage.openPage()//open site
+    public void restAppStateCartIconStatusTest() {
+        loginPage.openPage()
                 .waitForPageOpened()
-                .login(LOGIN_PAGE_USERNAME, LOGIN_PAGE_PASSWORD) //login
+                .login(LOGIN_PAGE_USERNAME, LOGIN_PAGE_PASSWORD)
                 .waitForPageOpened();
-        productsPage.addProductToCart("Sauce Labs Fleece Jacket");//add product to cart
-        hamburgerMenuPage.openPage() //Click on hamburger menu page icon
+        productsPage.addProductToCart("Sauce Labs Fleece Jacket");
+        hamburgerMenuPage.openPage()
                 .waitForPageOpened()
-                .resetAppStateClick()//Click on "Rest app state" button
-                .closeMenuSpanClick() //Click close menu span
+                .resetAppStateClick()
+                .closeMenuSpanClick()
                 .waitForPageOpened();
-        Assert.assertFalse(productsPage.isDisplayedCartIconCount());//Check button "add to cart" text
+        Assert.assertFalse(productsPage.isDisplayedCartIconCount());
     }
 
     @Test
-    public void hamburgerMenuLogoutBtn() {
-        loginPage.openPage()//open site
+    public void hamburgerMenuLogoutBtnTest() {
+        loginPage.openPage()
                 .waitForPageOpened()
-                .login(LOGIN_PAGE_USERNAME, LOGIN_PAGE_PASSWORD) //login
+                .login(LOGIN_PAGE_USERNAME, LOGIN_PAGE_PASSWORD)
                 .waitForPageOpened();
-        productsPage.addProductToCart("Sauce Labs Fleece Jacket");//add product to cart
-        hamburgerMenuPage.openPage() //Click on hamburger menu page icon
+        productsPage.addProductToCart("Sauce Labs Fleece Jacket");
+        hamburgerMenuPage.openPage()
                 .waitForPageOpened()
-                .logoutBtnClick() //Click on "Rest app state" button
+                .logoutBtnClick()
                 .waitForPageOpened();
-        Assert.assertEquals(loginPage.getUrl(), URL_SOUSE_DEMO + URL_LOGIN);//Check button "add to cart" text
+        Assert.assertEquals(loginPage.getUrl(), URL_SOUSE_DEMO + URL_LOGIN);
     }
 }
 

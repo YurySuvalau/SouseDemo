@@ -37,7 +37,6 @@ public class BaseTest implements TestConstants {
         loginPageFactory = new LoginPageFactory(driver);
         hamburgerMenuPage = new HamburgerMenuPage(driver);
         checkoutYourInfPage = new CheckoutYourInfPage(driver);
-
     }
 
     @AfterMethod(alwaysRun = true)

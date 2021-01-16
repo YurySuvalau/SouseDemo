@@ -6,16 +6,16 @@ import org.testng.annotations.Test;
 public class CartTests extends BaseTest {
 
     @Test
-    public void testCartProductDelete() {
-        loginPage.openPage()//open page
+    public void testCartProductDeleteTest() {
+        loginPage.openPage()
                 .waitForPageOpened()
-                .login(LOGIN_PAGE_USERNAME, LOGIN_PAGE_PASSWORD) //login
+                .login(LOGIN_PAGE_USERNAME, LOGIN_PAGE_PASSWORD)
                 .waitForPageOpened();
-        productsPage.addProductToCart("Sauce Labs Fleece Jacket");//add product to cart
-        cartPage.openPage() //open cart page
+        productsPage.addProductToCart("Sauce Labs Fleece Jacket");
+        cartPage.openPage()
                 .waitForPageOpened()
-                .removeProduct();//delete product from cart
-        Assert.assertEquals(cartPage.getRemovedProduct(), "");//product removal check
+                .removeProduct();
+        Assert.assertEquals(cartPage.getRemovedProduct(), "");
     }
 }
 

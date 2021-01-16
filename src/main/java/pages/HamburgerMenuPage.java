@@ -1,6 +1,6 @@
 package pages;
 
-import Constants.Constants;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -8,6 +8,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 public class HamburgerMenuPage extends BasePage {
+    By HAMBURGER_MENU = By.xpath("//*[@class='bm-burger-button']");
+    By HAMBURGER_MENU_REST_APP_STATE = By.xpath("//a[@id='reset_sidebar_link']");
+    By HAMBURGER_MENU_LOGOUT = By.xpath("//*[@id='logout_sidebar_link']");
+    By HAMBURGER_MENU_CLOSE = By.xpath("//*[@class='bm-cross-button']//button");
 
     public HamburgerMenuPage(WebDriver driver) {
         super(driver);
@@ -35,7 +39,7 @@ public class HamburgerMenuPage extends BasePage {
 
     public ProductsPage closeMenuSpanClick() {
         JavascriptExecutor executor = (JavascriptExecutor) driver;
-        executor.executeScript("arguments[0].click();", driver.findElement(Constants.HAMBURGER_MENU_CLOSE));
+        executor.executeScript("arguments[0].click();", driver.findElement(HAMBURGER_MENU_CLOSE));
         return new ProductsPage(driver);
     }
 

@@ -5,6 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class LoginPageFactory extends BasePage {
+    String PRODUCT_NAME_ANCESTOR = "//*[text() = '%s']/ancestor::*[@class='cart_item']";
+    String PRODUCT_QUANTITY = PRODUCT_NAME_ANCESTOR + "//*[@class='cart_quantity']";
+    String PRODUCT_PRICE = PRODUCT_NAME_ANCESTOR + "//*[@class='inventory_item_price']";
     //Study class
     @FindBy(xpath = "//*[@data-test='username']")
     WebElement usernameInput;
