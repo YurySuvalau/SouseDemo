@@ -1,39 +1,42 @@
 package tests;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import pages.CartPage;
-import pages.CheckoutPage;
-import pages.LoginPage;
-import pages.ProductsPage;
+import pages.*;
+import test_data.TestConstants;
 
 import java.util.concurrent.TimeUnit;
 
-public class BaseTest {
+public class BaseTest implements TestConstants {
     WebDriver driver;
     LoginPage loginPage;
     ProductsPage productsPage;
     CartPage cartPage;
     CheckoutPage checkoutPage;
-
-    public static final String LOGIN_PAGE_USERNAME = "standard_user";
-    public static final String LOGIN_PAGE_PASSWORD = "secret_sauce";
-    public static final String FIRSTNAME = "Your";
-    public static final String LASTNAME = "Name";
-    public static final String ZIPCODE = "123";
+    LoginPageFactory loginPageFactory;
+    HamburgerMenuPage hamburgerMenuPage;
+    CheckoutYourInfPage checkoutYourInfPage;
 
     @BeforeMethod
     public void InitTest() {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        pageInit();
+    }
+
+    public void pageInit() {
         loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
         cartPage = new CartPage(driver);
         checkoutPage = new CheckoutPage(driver);
+        loginPageFactory = new LoginPageFactory(driver);
+        hamburgerMenuPage = new HamburgerMenuPage(driver);
+        checkoutYourInfPage = new CheckoutYourInfPage(driver);
     }
 
     @AfterMethod(alwaysRun = true)
