@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
@@ -27,22 +28,26 @@ public class HamburgerMenuPage extends BasePage {
         return this;
     }
 
+    @Step("Open Hamburger menu page")
     public HamburgerMenuPage openPage() {
         driver.findElement(HAMBURGER_MENU).click();
         return this;
     }
 
+    @Step("Click on Rest App State button")
     public HamburgerMenuPage resetAppStateClick() {
         driver.findElement(HAMBURGER_MENU_REST_APP_STATE).click();
         return this;
     }
 
+    @Step("Close Hamburger menu")
     public ProductsPage closeMenuSpanClick() {
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", driver.findElement(HAMBURGER_MENU_CLOSE));
         return new ProductsPage(driver);
     }
 
+    @Step("Click on Logout button")
     public LoginPage logoutBtnClick() {
         driver.findElement(HAMBURGER_MENU_LOGOUT).click();
         return new LoginPage(driver);

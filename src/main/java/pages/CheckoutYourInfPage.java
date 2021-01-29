@@ -1,12 +1,13 @@
 package pages;
 
-import сonstants.Constants;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
+import сonstants.Constants;
 
 public class CheckoutYourInfPage extends BasePage implements Constants {
     String CHECKOUT_ONE_STEP_CONTINUE_BUTTON = "//*[@class='btn_primary cart_button']";
@@ -29,11 +30,13 @@ public class CheckoutYourInfPage extends BasePage implements Constants {
         return this;
     }
 
+    @Step("Open Personal Info page")
     public CheckoutYourInfPage openPage() {
         driver.get(URL_SOUSE_DEMO + URL_CHECKOUT_PERSONAL_INFO);
         return this;
     }
 
+    @Step("Fill Personal info")
     public CheckoutPage fillPersonalInfo(String firstname, String lastname, String zipcode) {
         driver.findElement(CHECKOUT_INF_FIRSTNAME).sendKeys(firstname);
         driver.findElement(CHECKOUT_INF_LASTNAME).sendKeys(lastname);
@@ -42,6 +45,7 @@ public class CheckoutYourInfPage extends BasePage implements Constants {
         return new CheckoutPage(driver);
     }
 
+    @Step("Chek error message text")
     public String getErrorMessage() {
         WebElement getMessage = driver.findElement(By.xpath(ERROR));
         return getMessage.getText();

@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -25,6 +26,7 @@ public class LoginPageFactory extends BasePage {
         return this;
     }
 
+    @Step("Fill login info")
     public ProductsPage login(String username, String password) {
         usernameInput.sendKeys(username);
         passwordInput.sendKeys(password);
@@ -32,11 +34,13 @@ public class LoginPageFactory extends BasePage {
         return new ProductsPage(driver);
     }
 
+    @Step("Fill incorrect login data")
     public LoginPageFactory loginWithIncorrectData(String username, String password) {
         login(username, password);
         return this;
     }
 
+    @Step("Open Login page")
     public LoginPageFactory openPage() {
         driver.get(URL_SOUSE_DEMO);
         return this;

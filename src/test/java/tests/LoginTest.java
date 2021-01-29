@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest {
 
-    @Test
+    @Test(description = "Login")
     public void demoTest() {
         loginPageFactory.openPage()
                 .waitForPageOpened()

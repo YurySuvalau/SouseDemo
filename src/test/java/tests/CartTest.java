@@ -1,11 +1,12 @@
 package tests;
 
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class CartTests extends BaseTest {
+public class CartTest extends BaseTest {
 
-    @Test
+    @Test(description = "Test button Remove in shipping cart")
     public void testCartProductDeleteTest() {
         loginPage.openPage()
                 .waitForPageOpened()

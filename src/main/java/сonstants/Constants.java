@@ -1,7 +1,5 @@
 package сonstants;
 
-import org.openqa.selenium.By;
-
 public interface Constants {
     String URL_SOUSE_DEMO = "https://www.saucedemo.com";
     String URL_CART_PAGE = "/cart.html";

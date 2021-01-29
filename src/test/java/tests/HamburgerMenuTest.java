@@ -7,7 +7,7 @@ import static сonstants.Constants.*;
 
 public class HamburgerMenuTest extends BaseTest {
 
-    @Test
+    @Test(description = "Check button Add To Cart after click on Rest App States  button")
     public void restAppStatesAddToCarBtnStatusTest() {
         loginPage.openPage()
                 .waitForPageOpened()
@@ -22,7 +22,7 @@ public class HamburgerMenuTest extends BaseTest {
         Assert.assertEquals(productsPage.getTextOnAddToCartBtn("Sauce Labs Fleece Jacket"), "ADD TO CART");
     }
 
-    @Test
+    @Test(description = "Check icon on Cart after click on Rest App States  button")
     public void restAppStateCartIconStatusTest() {
         loginPage.openPage()
                 .waitForPageOpened()
@@ -37,7 +37,7 @@ public class HamburgerMenuTest extends BaseTest {
         Assert.assertFalse(productsPage.isDisplayedCartIconCount());
     }
 
-    @Test
+    @Test(description = "Click Logout button")
     public void hamburgerMenuLogoutBtnTest() {
         loginPage.openPage()
                 .waitForPageOpened()

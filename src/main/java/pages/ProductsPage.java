@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import сonstants.Constants;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -35,11 +36,13 @@ public class ProductsPage extends BasePage implements Constants {
         return this;
     }
 
+    @Step("Get text on cart icon")
     public String getCartIconText() {
         WebElement iconText = driver.findElement(CART_ICON);
         return iconText.getText();
     }
 
+    @Step("Check what count on cart icon is displayed")
     public boolean isDisplayedCartIconCount() {
         try {
             driver.findElement(CART_ICON);
@@ -53,38 +56,45 @@ public class ProductsPage extends BasePage implements Constants {
         return driver.findElement(PRODUCT_LABEL).isDisplayed();
     }
 
+    @Step("Add product to shipping cart")
     public ProductsPage addProductToCart(String productName) {
         driver.findElement(By.xpath(String.format(ADD_PRODUCT_TO_CART_BUTTON, productName))).click();
         return this;
     }
 
+    @Step("Check text on Add To Cart button")
     public String getTextOnAddToCartBtn(String productName) {
         return driver.findElement(By.xpath(String.format(ADD_PRODUCT_TO_CART_BUTTON, productName))).getText();
     }
 
+    @Step("Open Products Page")
     public ProductsPage openPage() {
         openPage(URL_SOUSE_DEMO + URL_PRODUCTS);
         return this;
     }
 
+    @Step("Set sorting by Z to A")
     public ProductsPage setSortMenuZtoA() {
         Select sortMenu = new Select(driver.findElement(SORT_MENU));
         sortMenu.selectByVisibleText(SORT_NAME_BY_Z_TO_A);
         return this;
     }
 
+    @Step("Set sorting by A to Z")
     public ProductsPage setSortMenuAtoZ() {
         Select sortMenu = new Select(driver.findElement(SORT_MENU));
         sortMenu.selectByVisibleText(SORT_NAME_BY_A_TO_Z);
         return this;
     }
 
+    @Step("Set sorting by price High to Low ")
     public ProductsPage setSortMenuByPriseHiToLow() {
         Select sortMenu = new Select(driver.findElement(SORT_MENU));
         sortMenu.selectByVisibleText(SORT_BY_PRICE_HIGH_TO_LOW);
         return this;
     }
 
+    @Step("Set sorting by price Low to High")
     public ProductsPage setSortMenuByPriceLowToHi() {
         Select sortMenu = new Select(driver.findElement(SORT_MENU));
         sortMenu.selectByVisibleText(SORT_BY_PRICE_LOW_TO_HIGH);
@@ -108,8 +118,6 @@ public class ProductsPage extends BasePage implements Constants {
         }
         return listOfItem;
     }
-
-
 }
 
 

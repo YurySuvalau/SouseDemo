@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import сonstants.Constants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
@@ -16,7 +17,7 @@ public class CheckoutPage extends BasePage implements Constants {
     String OVERVIEW_SUMMARY = "//*[@class='summary_total_label']";
     By CHECKOUT_FINISH_MESSAGE = By.xpath("//*[@id='checkout_complete_container']//*[text()='THANK YOU FOR YOUR ORDER']");
     By CHECKOUT_FINISH_BUTTON = By.xpath("//*[@class='btn_action cart_button']");
-    By CHECKOUT_OVERVIEW_ITEM_NAME = By.xpath("//*[@class='inventory_item_name']");
+    String CHECKOUT_OVERVIEW_ITEM_NAME = "//*[@class='inventory_item_name']";
 
     public CheckoutPage(WebDriver driver) {
         super(driver);
@@ -36,6 +37,7 @@ public class CheckoutPage extends BasePage implements Constants {
         return Float.parseFloat((attribute).replaceAll("[^0-9.]", ""));
     }
 
+    @Step("Open Checkout page")
     public CheckoutPage openPage() {
         driver.get(URL_SOUSE_DEMO + URL_CHECKOUT);
         return this;
@@ -46,11 +48,13 @@ public class CheckoutPage extends BasePage implements Constants {
         return actualResult.getText();
     }
 
+    @Step("Check that the order is confirm")
     public boolean isConfirmOrderMessageDisplayed() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(CHECKOUT_FINISH_MESSAGE));
         return driver.findElement(CHECKOUT_FINISH_MESSAGE).isDisplayed();
     }
 
+    @Step("Checking the product cost")
     public boolean getItemTotalCost() {
         String totalCost = driver.findElement(By.xpath(OVERVIEW_ITEM_TOTAL)).getText();
         String tax = driver.findElement(By.xpath(OVERVIEW_TAX)).getText();
@@ -71,9 +75,9 @@ public class CheckoutPage extends BasePage implements Constants {
         return new CheckoutFinishPage(driver);
     }
 
-    public CheckoutPage getCheckoutItemName() {
-        driver.findElement(CHECKOUT_OVERVIEW_ITEM_NAME).getText();
-        return this;
+    public String getCheckoutItemName() {
+        String text = driver.findElement(By.xpath(CHECKOUT_OVERVIEW_ITEM_NAME)).getText();
+        return text;
     }
 }
 

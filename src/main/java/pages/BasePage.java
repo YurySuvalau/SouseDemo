@@ -1,9 +1,10 @@
 package pages;
 
-import сonstants.Constants;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import сonstants.Constants;
+
 
 abstract class BasePage implements Constants {
     WebDriver driver;

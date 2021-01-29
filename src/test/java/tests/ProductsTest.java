@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class ProductsTest extends BaseTest {
 
-    @Test
+    @Test(description = "Add product to cart")
     public void addProductToCartTest() {
         loginPage.openPage()
                 .waitForPageOpened()
@@ -20,7 +20,7 @@ public class ProductsTest extends BaseTest {
         Assert.assertEquals(cartPage.getPrice(), "49.99");
     }
 
-    @Test
+    @Test(description = "Check counter on cart icon")
     public void CounterOnCartIconTest() {
         loginPage.openPage()
                 .waitForPageOpened()
@@ -31,7 +31,7 @@ public class ProductsTest extends BaseTest {
         Assert.assertEquals(productsPage.getCartIconText(), "1");
     }
 
-    @Test
+    @Test(description = "Check sorting from Z to A")
     public void sortByNameFromZtoATest() {
         loginPage.openPage()
                 .waitForPageOpened()
@@ -43,7 +43,7 @@ public class ProductsTest extends BaseTest {
         Assert.assertFalse(notSorted.equals(sorted));
     }
 
-    @Test
+    @Test(description = "Check sorting from A to Z")
     public void sortByNameFromAtoZTest() {
         loginPage.openPage()
                 .waitForPageOpened()
@@ -56,7 +56,7 @@ public class ProductsTest extends BaseTest {
         Assert.assertTrue(notSorted.equals(sorted));
     }
 
-    @Test
+    @Test(description = "Check sorting by price from High to Low")
     public void sortByPriceFromHiToLowTest() {
         loginPage.openPage()
                 .waitForPageOpened()
@@ -68,7 +68,7 @@ public class ProductsTest extends BaseTest {
         Assert.assertFalse(notSorted.equals(sorted));
     }
 
-    @Test
+    @Test(description = "Check sorting by price from Low to Hi")
     public void sortByPriceFromLowToHiTest() {
         loginPage.openPage()
                 .waitForPageOpened()

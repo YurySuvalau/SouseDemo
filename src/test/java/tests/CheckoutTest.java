@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class CheckoutTest extends BaseTest {
 
-    @Test
+    @Test(description = "When filling in personal information, leave the first name field blank")
     public void firstNameFieldIsEmptyTest() {
         loginPage.openPage()
                 .waitForPageOpened()
@@ -21,7 +21,7 @@ public class CheckoutTest extends BaseTest {
         Assert.assertEquals(checkoutYourInfPage.getErrorMessage(), "Error: First Name is required");
     }
 
-    @Test
+    @Test(description = "Fill all fields in personal info page")
     public void setPersonalDataTest() {
         loginPage.openPage()
                 .waitForPageOpened()
@@ -37,7 +37,7 @@ public class CheckoutTest extends BaseTest {
         Assert.assertEquals(checkoutPage.getCheckoutOverviewLabel(), "Checkout: Overview");
     }
 
-    @Test
+    @Test(description = "When filling in personal information, leave the last name field blank")
     public void lastNameFieldIsEmptyTest() {
         loginPage.openPage()
                 .waitForPageOpened()
@@ -53,8 +53,8 @@ public class CheckoutTest extends BaseTest {
         Assert.assertEquals(checkoutYourInfPage.getErrorMessage(), "Error: Last Name is required");
     }
 
-    @Test
-    public void buyingProductTestTest() {
+    @Test(description = "Buying product")
+    public void buyingProductTest() {
         loginPage.openPage()
                 .waitForPageOpened()
                 .login(LOGIN_PAGE_USERNAME, LOGIN_PAGE_PASSWORD)
@@ -72,7 +72,7 @@ public class CheckoutTest extends BaseTest {
         Assert.assertTrue(checkoutPage.isConfirmOrderMessageDisplayed());
     }
 
-    @Test
+    @Test(description = "Make an empty order")
     public void getEmptyOrderTest() {
         loginPage.openPage()
                 .waitForPageOpened()
@@ -89,7 +89,7 @@ public class CheckoutTest extends BaseTest {
         Assert.assertFalse(checkoutPage.isConfirmOrderMessageDisplayed());
     }
 
-    @Test
+    @Test(description = "Check total cost of product")
     public void getTotalCostProductTest() {
         loginPage.openPage()
                 .waitForPageOpened()
