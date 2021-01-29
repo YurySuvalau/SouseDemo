@@ -9,7 +9,7 @@ public class CartTests extends BaseTest {
     public void testCartProductDeleteTest() {
         loginPage.openPage()
                 .waitForPageOpened()
-                .login(LOGIN_PAGE_USERNAME, LOGIN_PAGE_PASSWORD)
+                .login(System.getenv("username"), System.getenv("password"))
                 .waitForPageOpened();
         productsPage.addProductToCart("Sauce Labs Fleece Jacket");
         cartPage.openPage()
