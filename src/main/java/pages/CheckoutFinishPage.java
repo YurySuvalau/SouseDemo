@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import сonstants.Constants;
 import org.openqa.selenium.TimeoutException;
@@ -23,7 +24,7 @@ public class CheckoutFinishPage extends BasePage implements Constants {
         }
         return this;
     }
-
+    @Step("Open checkout finish page")
     public CheckoutFinishPage openPage() {
         openPage(URL_SOUSE_DEMO + URL_CHECKOUT_FINISH_PAGE);
         return this;

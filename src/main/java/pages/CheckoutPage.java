@@ -1,10 +1,10 @@
 package pages;
 
+import io.qameta.allure.Step;
 import сonstants.Constants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
@@ -36,21 +36,23 @@ public class CheckoutPage extends BasePage implements Constants {
         return Float.parseFloat((attribute).replaceAll("[^0-9.]", ""));
     }
 
+    @Step("Open checkout page")
     public CheckoutPage openPage() {
         driver.get(URL_SOUSE_DEMO + URL_CHECKOUT);
         return this;
     }
 
     public String getCheckoutOverviewLabel() {
-        WebElement actualResult = driver.findElement(By.xpath(CHECKOUT_INF_STEP_TWO_OVERVIEW));
-        return actualResult.getText();
+        return driver.findElement(By.xpath(CHECKOUT_INF_STEP_TWO_OVERVIEW)).getText();
     }
 
+    @Step("Check was confirm message is displayed")
     public boolean isConfirmOrderMessageDisplayed() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(CHECKOUT_FINISH_MESSAGE));
         return driver.findElement(CHECKOUT_FINISH_MESSAGE).isDisplayed();
     }
 
+    @Step("Check product total cost")
     public boolean getItemTotalCost() {
         String totalCost = driver.findElement(By.xpath(OVERVIEW_ITEM_TOTAL)).getText();
         String tax = driver.findElement(By.xpath(OVERVIEW_TAX)).getText();
@@ -66,6 +68,7 @@ public class CheckoutPage extends BasePage implements Constants {
         }
     }
 
+    @Step("Click checkout finish button")
     public CheckoutFinishPage finishBtnClick() {
         driver.findElement(CHECKOUT_FINISH_BUTTON).click();
         return new CheckoutFinishPage(driver);

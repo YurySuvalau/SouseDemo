@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import сonstants.Constants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
@@ -29,11 +30,13 @@ public class CheckoutYourInfPage extends BasePage implements Constants {
         return this;
     }
 
+    @Step("Open Personal info page")
     public CheckoutYourInfPage openPage() {
         driver.get(URL_SOUSE_DEMO + URL_CHECKOUT_PERSONAL_INFO);
         return this;
     }
 
+    @Step("Fill Personal info")
     public CheckoutPage fillPersonalInfo(String firstname, String lastname, String zipcode) {
         driver.findElement(CHECKOUT_INF_FIRSTNAME).sendKeys(firstname);
         driver.findElement(CHECKOUT_INF_LASTNAME).sendKeys(lastname);
@@ -42,9 +45,9 @@ public class CheckoutYourInfPage extends BasePage implements Constants {
         return new CheckoutPage(driver);
     }
 
+    @Step("Check error message in login page")
     public String getErrorMessage() {
-        WebElement getMessage = driver.findElement(By.xpath(ERROR));
-        return getMessage.getText();
+        return driver.findElement(By.xpath(ERROR)).getText();
     }
 
     public CheckoutPage confirmPersonalInfoBtn() {
