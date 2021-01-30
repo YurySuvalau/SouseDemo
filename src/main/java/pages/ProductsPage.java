@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import сonstants.Constants;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -35,11 +36,12 @@ public class ProductsPage extends BasePage implements Constants {
         return this;
     }
 
+    @Step("Check cart icon count")
     public String getCartIconText() {
-        WebElement iconText = driver.findElement(CART_ICON);
-        return iconText.getText();
+        return driver.findElement(CART_ICON).getText();
     }
 
+    @Step("Check cart icon count is displayed")
     public boolean isDisplayedCartIconCount() {
         try {
             driver.findElement(CART_ICON);
@@ -108,8 +110,6 @@ public class ProductsPage extends BasePage implements Constants {
         }
         return listOfItem;
     }
-
-
 }
 
 

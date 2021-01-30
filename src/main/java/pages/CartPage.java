@@ -1,10 +1,10 @@
 package pages;
 
+import io.qameta.allure.Step;
 import сonstants.Constants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
@@ -29,31 +29,34 @@ public class CartPage extends BasePage implements Constants {
         return this;
     }
 
+    @Step("Open SouceDemo.com")
     public CartPage openPage() {
         openPage(URL_SOUSE_DEMO + URL_CART_PAGE);
         return this;
     }
 
+    @Step("Check product quantity in shipping cart")
     public String getQuantity() {
-        WebElement quantity = driver.findElement(By.xpath(GET_QUANTITY_IN_CART));
-        return quantity.getText();
+        return driver.findElement(By.xpath(GET_QUANTITY_IN_CART)).getText();
     }
 
+    @Step("Check product cost in shipping cart")
     public String getPrice() {
-        WebElement price = driver.findElement(By.xpath(GET_PRICE_IN_CART));
-        return price.getText();
+        return driver.findElement(By.xpath(GET_PRICE_IN_CART)).getText();
     }
 
+    @Step("Click on button Remove")
     public CartPage removeProduct() {
         driver.findElement(By.xpath(REMOVE_BUTTON)).click();
         return this;
     }
 
+    @Step("Check product was removed")
     public String getRemovedProduct() {
-        WebElement removedProduct = driver.findElement(By.xpath(REMOVE_RESULT));
-        return removedProduct.getText();
+        return driver.findElement(By.xpath(REMOVE_RESULT)).getText();
     }
 
+    @Step("Click on checkout button")
     public CheckoutYourInfPage checkoutBtnClick() {
         driver.findElement((CHECKOUT_BUTTON)).click();
         return new CheckoutYourInfPage(driver);

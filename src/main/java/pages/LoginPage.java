@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import сonstants.Constants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
@@ -32,11 +33,13 @@ public class LoginPage extends BasePage implements Constants {
         return new ProductsPage(driver);
     }
 
+    @Step("Open login page")
     public LoginPage openPage() {
         driver.get(URL_SOUSE_DEMO);
         return this;
     }
 
+    @Step("Get current page url address")
     public String getUrl() {
         return driver.getCurrentUrl();
     }
