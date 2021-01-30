@@ -54,7 +54,7 @@ public class CheckoutTest extends BaseTest {
     }
 
     @Test
-    public void buyingProductTestTest() {
+    public void buyingProductTest() {
         loginPage.openPage()
                 .waitForPageOpened()
                 .login(LOGIN_PAGE_USERNAME, LOGIN_PAGE_PASSWORD)

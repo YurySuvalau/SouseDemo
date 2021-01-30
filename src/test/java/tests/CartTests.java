@@ -2,6 +2,7 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utilits.PropertyReader;
 
 public class CartTests extends BaseTest {
 
@@ -9,7 +10,7 @@ public class CartTests extends BaseTest {
     public void testCartProductDeleteTest() {
         loginPage.openPage()
                 .waitForPageOpened()
-                .login(LOGIN_PAGE_USERNAME, LOGIN_PAGE_PASSWORD)
+                .login(System.getenv().getOrDefault("username", PropertyReader.getProperty("username")), System.getenv().getOrDefault("password", PropertyReader.getProperty("password")))
                 .waitForPageOpened();
         productsPage.addProductToCart("Sauce Labs Fleece Jacket");
         cartPage.openPage()
