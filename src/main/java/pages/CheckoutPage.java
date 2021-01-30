@@ -71,9 +71,8 @@ public class CheckoutPage extends BasePage implements Constants {
         return new CheckoutFinishPage(driver);
     }
 
-    public CheckoutPage getCheckoutItemName() {
-        driver.findElement(CHECKOUT_OVERVIEW_ITEM_NAME).getText();
-        return this;
+    public String getCheckoutItemName() {
+        return driver.findElement(CHECKOUT_OVERVIEW_ITEM_NAME).getText();
     }
 }
 
