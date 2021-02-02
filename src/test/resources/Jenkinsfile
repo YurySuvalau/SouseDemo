@@ -9,7 +9,7 @@ pipeline {
         cron('0 8 * * *')
     }
     parameters {
-        gitParameter branchFilter: 'origin/(.*)', defaultValue: 'future_credentials', name: 'BRANCH', type: 'PT_BRANCH'
+        gitParameter branchFilter: 'origin/(.*)', defaultValue: 'feature_credentials', name: 'BRANCH', type: 'PT_BRANCH'
     }
 
    stages {
