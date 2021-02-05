@@ -22,7 +22,7 @@ pipeline {
             //sh "mvn clean test"
 
             // To run Maven on a Windows agent, use
-            bat "mvn clean test"
+            bat "mvn -Dmaven.test.failure.ignore=true clean package"
          }
 
          post {
