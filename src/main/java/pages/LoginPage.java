@@ -25,7 +25,7 @@ public class LoginPage extends BasePage implements Constants {
         }
         return this;
     }
-
+    @Step("Enter login data")
     public ProductsPage login(String username, String password) {
         driver.findElement(USERNAME_INPUT).sendKeys(username);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
